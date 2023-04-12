@@ -25,7 +25,7 @@ const ChatFeed = (props) => {
       .then((response) => {
         const generatedText = response.data.choices[0].message.content;
         
-        let fixedCreds = { ...creds, userName: 'test', userSecret: 'test' };
+        let fixedCreds = { ...creds, userName: `${process.env.REACT_AOO_CHATBOT_USERNAME}`, userSecret: `${process.env.REACT_AOO_CHATBOT_USER_SECRET}` };
         sendMessage(fixedCreds, chatId, { text: generatedText }, (message) => {
           setMessages((prevMessages) => ({
             ...prevMessages,

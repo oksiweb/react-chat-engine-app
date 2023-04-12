@@ -9,9 +9,6 @@ const projectID = process.env.REACT_APP_PROJECT_ID;
 
 const App = () => {
   if (!localStorage.getItem('username')) return <LoginForm />;
-  const handleNewMessage = () => {
-    console.log('test');
-  };
 
   return (
     <ChatEngine
@@ -20,7 +17,6 @@ const App = () => {
       userName={localStorage.getItem('username')}
       userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
-      onNewMessage={handleNewMessage}
     />
   );
 };
